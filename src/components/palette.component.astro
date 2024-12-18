@@ -1,0 +1,26 @@
+<div class="flex flex-col h-64 rounded-md">
+  <div class="bg-purple flex-[3] rounded-ss-md rounded-se-md">
+    <span>#FFFFFF</span>
+  </div>
+  <div class="bg-blue flex-[2]">
+    <span>#FFFFFF</span>
+  </div>
+  <div class="bg-green flex-1">
+    <span>#FFFFFF</span>
+  </div>
+  <div class="bg-red flex-1">
+    <span>#FFFFFF</span>
+  </div>
+  <div class="bg-yellow flex-1 rounded-es-md rounded-ee-md">
+    <span>#FFFFFF</span>
+  </div>
+</div>
+
+<style>
+  div > div {
+    @apply flex justify-center items-end p-2 transition-all hover:flex-[6] cursor-pointer;
+  }
+  span {
+    @apply text-xs;
+  }
+</style>
