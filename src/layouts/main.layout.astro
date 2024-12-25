@@ -15,21 +15,23 @@ const { title } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
   </head>
-  <body>
+  <body class="flex">
     <Nav />
     <slot />
   </body>
 </html>
 
 <style is:global>
-  @import url('https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-rounded/css/uicons-solid-rounded.css');
+  @import url('https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css');
 
   body {
-    @apply bg-light-300;
+    @apply bg-light;
   }
+
   * {
-    @apply text-dark-300;
+    @apply text-dark;
   }
+
   i {
     position: relative;
     top: 2px;
