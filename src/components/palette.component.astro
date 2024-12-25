@@ -1,24 +1,34 @@
 <div class="flex flex-col h-64 rounded-md">
-  <div class="bg-purple flex-[3] rounded-ss-md rounded-se-md">
+  <div class="bg-purple flex-[4] rounded-ss-md rounded-se-md">
     <span>#FFFFFF</span>
   </div>
   <div class="bg-blue flex-[2]">
     <span>#FFFFFF</span>
   </div>
-  <div class="bg-green flex-1">
+  <div class="bg-green">
     <span>#FFFFFF</span>
   </div>
-  <div class="bg-red flex-1">
+  <div class="bg-red">
     <span>#FFFFFF</span>
   </div>
-  <div class="bg-yellow flex-1 rounded-es-md rounded-ee-md">
+  <div class="bg-yellow">
     <span>#FFFFFF</span>
   </div>
+  <span
+    class="rounded-es-md rounded-ee-md py-1 px-2 bg-dark text-light text-end"
+    ><i class="mr-1 text-light fi fi-rr-eye"></i>2323</span
+  >
 </div>
 
 <style>
   div > div {
-    @apply flex justify-center items-end p-2 transition-all hover:flex-[6] cursor-pointer;
+    @apply flex justify-center items-end p-2 transition-all hover:flex-[6] cursor-pointer min-h-8;
+  }
+  div div span {
+    @apply opacity-0 text-light p-1 absolute bg-dark rounded-md bg-opacity-50;
+  }
+  div div:hover span {
+    @apply opacity-100 transition-all;
   }
   span {
     @apply text-xs;
