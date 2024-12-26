@@ -1,6 +1,7 @@
 ---
 import Main from "../layouts/main.layout.astro";
 import Palette from "../components/palette.component.astro";
+import { type PaletteSchema } from "../interfaces/color.interface";
 import axios from "axios";
 
 const popularPalettes = await axios
@@ -12,12 +13,10 @@ const popularPalettes = await axios
 
 <Main title="Best Palettes for UI - ColoredUI">
   <article class="grid grid-cols-4 gap-4 w-full h-max m-4">
-    <Palette />
-    <Palette />
-    <Palette />
-    <Palette />
-    <Palette />
-    <Palette />
-    <Palette />
+    {
+      popularPalettes.map((palette: PaletteSchema) => {
+        return <Palette client:visible primary={ palette.primary.hex } secondary={ palette.secondary.hex } green={ palette.green.hex } yellow={ palette.yellow.hex } red={ palette.red.hex } views={ palette.views } />;
+      })
+    }
   </article>
 </Main>

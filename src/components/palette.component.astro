@@ -1,22 +1,38 @@
+---
+interface Props {
+  primary: string;
+  secondary: string;
+  green: string;
+  yellow: string;
+  red: string;
+  views: number;
+}
+
+const { primary, secondary, green, yellow, red, views } = Astro.props;
+---
+
 <div class="flex flex-col h-64 rounded-md">
-  <div class="bg-purple flex-[4] rounded-ss-md rounded-se-md">
-    <span>#FFFFFF</span>
+  <div
+    class="flex-[4] rounded-ss-md rounded-se-md"
+    style={`background-color: ${primary}`}
+  >
+    <span>{primary.toUpperCase()}</span>
   </div>
-  <div class="bg-blue flex-[2]">
-    <span>#FFFFFF</span>
+  <div class="flex-[2]" style={`background-color: ${secondary}`}>
+    <span>{secondary.toUpperCase()}</span>
   </div>
-  <div class="bg-green">
-    <span>#FFFFFF</span>
+  <div style={`background-color: ${green}`}>
+    <span>{green.toUpperCase()}</span>
   </div>
-  <div class="bg-red">
-    <span>#FFFFFF</span>
+  <div style={`background-color: ${yellow}`}>
+    <span>{yellow.toUpperCase()}</span>
   </div>
-  <div class="bg-yellow">
-    <span>#FFFFFF</span>
+  <div style={`background-color: ${red}`}>
+    <span>{red.toUpperCase()}</span>
   </div>
   <span
     class="rounded-es-md rounded-ee-md py-1 px-2 bg-dark text-light text-end"
-    ><i class="mr-1 text-light fi fi-rr-eye"></i>2323</span
+    ><i class="mr-1 text-light fi fi-rr-eye"></i>{views}</span
   >
 </div>
 
