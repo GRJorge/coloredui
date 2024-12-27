@@ -15,7 +15,25 @@ const popularPalettes = await axios
   <article class="grid grid-cols-4 gap-4 w-full h-max m-4">
     {
       popularPalettes.map((palette: PaletteSchema) => {
-        return <Palette client:visible primary={ palette.primary.hex } secondary={ palette.secondary.hex } green={ palette.green.hex } yellow={ palette.yellow.hex } red={ palette.red.hex } views={ palette.views } />;
+        const darkColors = {
+          light: palette.dark.light.hex,
+          normal: palette.dark.normal.hex,
+          dark: palette.dark.dark.hex,
+        };
+        const lightColors = {
+          light: palette.light.light.hex,
+          normal: palette.light.normal.hex,
+          dark: palette.light.dark.hex,
+        };
+        return (
+          <Palette
+            dark={darkColors}
+            light={lightColors}
+            primary={palette.primary.hex}
+            secondary={palette.secondary.hex}
+            views={palette.views}
+          />
+        );
       })
     }
   </article>

@@ -1,34 +1,46 @@
 ---
 interface Props {
+  dark: { light: string; normal: string; dark: string };
+  light: { light: string; normal: string; dark: string };
   primary: string;
   secondary: string;
-  green: string;
-  yellow: string;
-  red: string;
   views: number;
 }
 
-const { primary, secondary, green, yellow, red, views } = Astro.props;
+const { dark, light, primary, secondary, views } =
+  Astro.props;
 ---
 
-<div class="flex flex-col h-64 rounded-md">
-  <div
-    class="flex-[4] rounded-ss-md rounded-se-md"
-    style={`background-color: ${primary}`}
-  >
-    <span>{primary.toUpperCase()}</span>
+<div class="flex flex-col h-64">
+  <div class="flex flex-col flex-1">
+    <div class="flex-[2] rounded-ss-md rounded-se-md" style={`background-color:${primary}`}>
+      <span>{primary.toUpperCase()}</span>
+    </div>
+    <div class="flex-1" style={`background-color:${secondary}`}>
+      <span>{secondary.toUpperCase()}</span>
+    </div>
   </div>
-  <div class="flex-[2]" style={`background-color: ${secondary}`}>
-    <span>{secondary.toUpperCase()}</span>
+  <div class="flex">
+    <div class="flex-1" style={`background-color:${dark.dark}`}>
+      <span>{dark.dark.toUpperCase()}</span>
+    </div>
+    <div class="flex-1" style={`background-color:${dark.normal}`}>
+      <span>{dark.normal.toUpperCase()}</span>
+    </div>
+    <div class="flex-1" style={`background-color:${dark.light}`}>
+      <span>{dark.light.toUpperCase()}</span>
+    </div>
   </div>
-  <div style={`background-color: ${green}`}>
-    <span>{green.toUpperCase()}</span>
-  </div>
-  <div style={`background-color: ${yellow}`}>
-    <span>{yellow.toUpperCase()}</span>
-  </div>
-  <div style={`background-color: ${red}`}>
-    <span>{red.toUpperCase()}</span>
+  <div class="flex">
+    <div class="flex-1" style={`background-color:${light.dark}`}>
+      <span>{light.dark.toUpperCase()}</span>
+    </div>
+    <div class="flex-1" style={`background-color:${light.normal}`}>
+      <span>{light.normal.toUpperCase()}</span>
+    </div>
+    <div class="flex-1" style={`background-color:${light.light}`}>
+      <span>{light.light.toUpperCase()}</span>
+    </div>
   </div>
   <span
     class="rounded-es-md rounded-ee-md py-1 px-2 bg-dark text-light text-end"
@@ -37,14 +49,14 @@ const { primary, secondary, green, yellow, red, views } = Astro.props;
 </div>
 
 <style>
-  div > div {
-    @apply flex justify-center items-end p-2 transition-all hover:flex-[6] cursor-pointer min-h-8;
+  div > div > div{
+    @apply flex items-end justify-center min-h-10 hover:flex-[4] transition-all cursor-pointer;
   }
-  div div span {
-    @apply opacity-0 text-light p-1 absolute bg-dark rounded-md bg-opacity-50;
+  div > div > div span {
+    @apply opacity-0 bg-dark text-light bg-opacity-50 p-1 rounded-ss-md rounded-se-md;
   }
-  div div:hover span {
-    @apply opacity-100 transition-all;
+  div > div > div:hover span {
+    @apply opacity-100;
   }
   span {
     @apply text-xs;
